@@ -11,14 +11,30 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
+                script {
+                    sh 'npm install'
+                }
             }
         }
         stage('Test') {
             steps {
-                sh 'echo test'
-            }      
+                sh 'chmod +x ./jenkins/scripts/test.sh'            
+                sh './jenkins/scripts/test.sh'
+            }
         }
+
+        stage('Deploy for production') {       
+            steps {
+                 sh 'echo deploy'
+            }
+        }
+
+        stage('Serve React App') {
+            steps {
+                sh 'npx serve -s build -l 5173 &'
+            }
+        }
+
         stage('Deliver') { 
             steps {
                 sh 'chmod -R +x ./jenkins/scripts'
@@ -26,6 +42,6 @@ pipeline {
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
                 sh './jenkins/scripts/kill.sh'
             }
-        }
+        }     
     }
 }
