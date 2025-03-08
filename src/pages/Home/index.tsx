@@ -36,9 +36,9 @@ function Home() {
     getAutores()
   }
 
-  useEffect(() => {
-    getAutores()
-  }, [])
+  // useEffect(() => {
+  //   getAutores()
+  // }, [])
 
   return (
     <div className='container'>
@@ -46,10 +46,12 @@ function Home() {
       <form className='formAutores'>
         <h1>Cadastro de Autor</h1>
         <input placeholder="Nome" name='Autor' type='text' ref={inputName}></input>
-        <button type='button' onClick={createAutor}>Salvar</button>
+        <button type='button' 
+        // onClick={createAutor}
+        >Salvar</button>
       </form>
 
-      {autores.map(autor => (
+      {/* {autores.map(autor => (
         <div key={autor.numero} className="card">
           <div>
             <p>Nome:  <span>{autor.nome}</span></p>
@@ -59,7 +61,7 @@ function Home() {
             <img src={Trash} />
           </button>
         </div>
-      ))}
+      ))} */}
 {/* 
       <form className='formLivros'>
         <h1>Cadastro de Livros</h1>
