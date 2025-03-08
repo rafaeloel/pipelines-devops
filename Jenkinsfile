@@ -29,7 +29,14 @@ pipeline {
             steps {
                  sh 'echo deploy'
             }
-        } 
+        }
+
+        stage('Serve React App') {
+            steps {
+                sh 'npx serve -s build -l 3000 &'
+            }
+        }
+
         stage('Deliver') { 
             steps {
                 sh 'chmod -R +x ./jenkins/scripts'
