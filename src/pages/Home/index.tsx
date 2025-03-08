@@ -8,11 +8,11 @@ function Home() {
 
   const inputName = useRef()
 
-  const inputNumero = useRef()
-  const inputTitulo = useRef()
-  const inputEdicao = useRef()
-  const inputIsbn = useRef()
-  const inputCategoria = useRef()
+  // const inputNumero = useRef()
+  // const inputTitulo = useRef()
+  // const inputEdicao = useRef()
+  // const inputIsbn = useRef()
+  // const inputCategoria = useRef()
 
   async function getAutores() {
     const response = await api.get('/autor')
