@@ -30,7 +30,7 @@ services:
     volumes:
        - jenkins-docker-certs:/certs/client:ro
        - jenkins-data:/var/jenkins_home
-       - /home
+       - $HOME:/home
     restart: always
     environment:
        DOCKER_HOST: tcp://docker:2376
