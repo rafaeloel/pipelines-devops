@@ -30,7 +30,7 @@ pipeline {
                  sh 'echo deploy'
             }
         } 
-                stage('Deliver') { 
+        stage('Deliver') { 
             steps {
                 sh 'chmod -R +x ./jenkins/scripts'
                 sh './jenkins/scripts/deliver.sh'
