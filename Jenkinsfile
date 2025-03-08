@@ -7,6 +7,13 @@ pipeline {
         CI = 'true'
     }
     stages {
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    sh 'npm install'
+                }
+            }
+        }
         stage('Build') {
             steps {
                 sh 'echo build'
